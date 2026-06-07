@@ -6,7 +6,7 @@ banner motd # ro18 #
 enable secret pass
 aaa new-model
 aaa authentication login default local group radius
-ip domain name Kirill.ru
+ip domain name cisco.ru
 username Admin secret pass
 crypto key gen rsa
 1024
@@ -34,7 +34,7 @@ no pass pass
 exec-time 0 0
 no login
 exit
-ip domain name Kirill.ru
+ip domain name cisco.ru
 username Admin secret pass
 crypto key gen rsa
 1024
@@ -52,7 +52,6 @@ vlan 117
 name A117
 int vlan 117
 no sh
-
 vlan 156
 name M156
 int vlan 156
@@ -82,7 +81,7 @@ ip route 172.20.33.100 255.255.255.252 172.20.33.105 5
 ip route 172.20.33.108 255.255.255.252 172.20.33.105
 do wr
 ==========================================
-vtp domain Kirill
+vtp domain cisco.ru
 vtp pass pass
 vtp mode cl
 do wr
@@ -141,7 +140,7 @@ ip dhcp pool vlan78
 network 10.0.26.128 255.255.255.128
 default-router 10.0.26.129
 dns-server 111.54.0.1
-domain-name Lebedev.ru
+domain-name cisco.ru
 ==========================================
 enable view root
 pass
@@ -165,13 +164,13 @@ commands configure include all interface
 commands exec include configure terminal
 do wr
 ==========================================
-aaa authentication login default group radius local none
+aaa authentication login cisco group radius local none
 radius-server host 172.13.160.100
 radius-server key pass
 line vty 0 15
-login authentication lebedev
+login authentication cisco
 line con 0
-login authentication lebedev
+login authentication cisco
 do wr
 ==========================================
 interface Tunnel29
